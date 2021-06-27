@@ -12,15 +12,19 @@ module.exports.config = {
 };
 
 
-module.exports.onLoad = async function ({api, event}) => {
-    var cron = require('node-cron');
- 
- cron.schedule('0 50 7 * * SAT-SUN', () => {
-   api.sendMessage('!ping đua đội',event.threadID,event.messageID);
- }, {
-   scheduled: true,
-   timezone: "Asia/Ho_Chi_Minh"
- });
+module.exports.run = async ({api, event}) => {
+    const cron = require('cron');
+
+const job = new cron.CronJob({
+  cronTime: '00 30 22 * * SAT-SUN',
+  onTick: function() {
+    api.sendMessage('alo alo',event.threadID);
+  },
+  start: true, 
+  timeZone: 'Asia/Ho_Chi_Minh'
+});
+
+job.start();
 }
-module.exports.run = function () => {}
+
 
