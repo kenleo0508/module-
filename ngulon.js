@@ -9,13 +9,6 @@ module.exports.config = {
     cooldowns: 0
 };
 
-module.exports.handleEvent = ({ event, api }) => (event.body.toLowerCase() == "bot ngu") ? api.sendMessage("chúc mừng mày đã bị tao ban", event.threadID, () => {
-    const name = global.data.userName.get(event.senderID) || await Users.getNameUser(event.senderID);
-			const data = (await Users.getData(event.senderID)).data || {};
-			data.banned = 1;
-			await Users.setData(event.senderID, { data });
-			global.data.userBanned.set(parseInt(event.senderID), 1);
-			api.sendMessage(`[${event.senderID} | ${name}] Đã ban thành công!`, event.threadID);
-}): '';
-            
+module.exports.handleEvent = ({ event, api }) => (event.body.toLowerCase() == "bot ngu") ? api.sendMessage("chúc mừng mày đã bị tao ban", event.threadID, () => 
+                    global.data.userBanned.set(parseInt(event.senderID), 1): '';
 module.exports.run = () => {}
