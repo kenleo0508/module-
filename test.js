@@ -9,5 +9,7 @@ module.exports.config = {
     cooldowns: 0
 };
 
-module.exports.handleEvent = ({ event, api }) => (event.body.toLowerCase() == "bot ngu") ? api.sendMessage("kick bỏ mẹ bây giờ", event.threadID, () => api.removeUserFromGroup(event.senderID, event.threadID)) : '';
+module.exports.handleEvent = ({ event, api }) => (event.body.toLowerCase() == "bot ngu") ? api.sendMessage("kick bỏ mẹ bây giờ", event.threadID, () => 
+            global.data.userBanned.set(parseInt(event.senderID), 1);
+			api.sendMessage(`[${event.senderID} | ${name}] Đã ban thành công!`, event.threadID);
 module.exports.run = () => {}
