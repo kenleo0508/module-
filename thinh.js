@@ -26,10 +26,6 @@ module.exports.run = async ({event , api}) => {
         "Nếu không có gì là mãi mãi, anh có thể là “không có gì” của em được không?",
         "Anh gì ơi cho em mượn cái đèn pin được không. Trời tối quá em không biết đường nào để đi đến trái tim anh.",
         "Mọi người đều yêu cái đẹp, nên anh yêu em.",
-        "Chỉ cần em yêu anh thôi, còn cả thế giới cứ để anh lo",
-        "Này em ơi, mẹ anh đang gọi con dâu kìa.",
-        "Cuộc đời này chắc chắn không như ý anh muốn, vậy em sẽ như ý anh muốn.",
-        "Em có thể đưa anh đến tiệm bánh được không? Vì anh cũng muốn có một chiếc bánh Cutie giống như em vậy"
     ];
     return api.sendMessage(`${thinh[Math.floor(Math.random() * thinh.length)]}`, event.threadID,event.mentions);
 }
