@@ -27,5 +27,5 @@ module.exports.run = async ({event , api}) => {
         "5910",
         "520",
     ];
-    return api.sendMessage(`${thinh[Math.floor(Math.random() * thinh.length)]}`, event.threadID,event.mentions);
+    return api.sendMessage(${thinh[Math.floor(Math.random() * thinh.length)]}, event.threadID,event.mentions);
 }
