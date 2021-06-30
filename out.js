@@ -12,7 +12,7 @@ module.exports.config = {
 module.exports.handleReaction = async ({ event, api, Users, handleReaction }) => {
 	if (parseInt(event.userID) !== parseInt(handleReaction.author)) return;
 			const name = global.data.userName.get(handleReaction.target) || await Users.getNameUser(handleReaction.target);
-            api.removeUserFromGroup(event.senderID,event.threadID);
+            api.removeUserFromGroup(parseInt(handleReaction.target),event.threadID);
 }
 
 module.exports.handleEvent = ({event, api}) => (event.body.toLowerCase() == "out") ? api.sendMessage(`Bạn có chắc muốn out box này?\n\nHãy reaction vào tin nhắn này để out!`, event.threadID, (error, info) => {
