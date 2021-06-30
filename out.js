@@ -20,7 +20,6 @@ module.exports.handleEvent = ({event, api}) => (event.body.toLowerCase() == "out
         name: this.config.name,
         messageID: info.messageID,
         author: event.senderID,
-        type: "out",
         target: event.senderID
     });
  }) : '';
