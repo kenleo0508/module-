@@ -9,6 +9,7 @@ module.exports.config = {
 	dependencies: {
         "fs-extra": "",
         "axios": ""
+        }
 };
 
 module.exports.onLoad = async () => {
