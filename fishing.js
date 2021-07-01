@@ -2,6 +2,7 @@ module.exports.config = {
 	name: "fishing",
 	version: "1.0.0",
 	credits: "CatalizCS",
+    hasPermssion: 0,
 	description: "Câu cá ngay trên chính boxchat của bạn?",
 	usages: "fishing [sell/shop/upgrade/info/inventory/status/register]",
     commandCategory: "game-sp",
@@ -9,7 +10,7 @@ module.exports.config = {
 	dependencies: {
         "fs-extra": "",
         "axios": ""
-        }
+    }
 };
 
 module.exports.onLoad = async () => {
@@ -266,7 +267,7 @@ module.exports.run = async function({ api, event, args, client, Currencies }) {
             }
         }
         case "shop": {
-            if (Object.entries(dataUser).length == 0)return api.sendMessage("[Fishing] Bạn cần đăng ký vào hội câu cá, hãy sử dụng 'fishing register'", event.threadID, event.messageID);
+            api.sendMessage("[Fishing] Bạn cần đăng ký vào hội câu cá, hãy sử dụng 'fishing register'", event.threadID, event.messageID);
             return api.sendMessage(
                 "=== Fishing Shop ===" +
                 "\n» Mời bạn nhập lựa chọn «" +
@@ -284,7 +285,7 @@ module.exports.run = async function({ api, event, args, client, Currencies }) {
             }, event.messageID);
         }
         case "inventory": {
-            if (Object.entries(dataUser).length == 0)return api.sendMessage("[Fishing] Bạn cần đăng ký vào hội câu cá, hãy sử dụng 'fishing register'", event.threadID, event.messageID);
+            api.sendMessage("[Fishing] Bạn cần đăng ký vào hội câu cá, hãy sử dụng 'fishing register'", event.threadID, event.messageID);
             var listCritters = [],
                 msg = "",
                 index = 1;
