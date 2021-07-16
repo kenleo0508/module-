@@ -50,7 +50,7 @@ module.exports.run = async function({ api, event, args ,Currencies}) {
     
     var { data } = await axios.get(`https://meewmeew.info/image/${type}?version=${this.config.version}`);
     var path = __dirname + `/cache/${type}.png`;
-    if (phiimg < 100) return api.sendMessage("[IMG] Số tiền của bạn không đủ để mua ảnh",event.threadID,event.messageID)
+    if (phiimg < 100) return api.sendMessage(">> Số tiền của bạn không đủ để mua ảnh <<",event.threadID,event.messageID)
     if (phiimg > 100) {
         await Currencies.decreaseMoney(event.senderID, 100);
         if (data.success == false) return api.sendMessage(data.error, threadID, messageID);
